@@ -43,8 +43,28 @@ public class Door : MonoBehaviour, IInteractable
         }
     }
 
+    public void Unlock()
+    {
+        if (state == DoorState.Locked)
+        {
+            state = DoorState.Closed;
+        }
+    }
+
+    public void Lock()
+    {
+        SetOpen(false);
+        state = DoorState.Locked;
+    }
+
     private void TryUnlock(GameObject interactor)
     {
+        if (!requiresCard)
+        {
+            Debug.Log("Door is locked");
+            return;
+        }
+
         if (interactor.TryGetComponent(out Inventory inventory) && inventory.Has(ItemId.AccessCard))
         {
             Debug.Log("Door unlocked with Access Card");
