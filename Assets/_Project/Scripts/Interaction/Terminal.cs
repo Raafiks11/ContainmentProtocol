@@ -3,6 +3,7 @@ using UnityEngine;
 public class Terminal : MonoBehaviour, IInteractable
 {
     [SerializeField] private GameStateManager manager;
+    [SerializeField] private TerminalUI ui;
 
     private bool used;
 
@@ -10,7 +11,12 @@ public class Terminal : MonoBehaviour, IInteractable
 
     public void Interact(GameObject interactor)
     {
-        Activate();
+        if (used)
+        {
+            return;
+        }
+
+        ui.Open(this);
     }
 
     public void Activate()
