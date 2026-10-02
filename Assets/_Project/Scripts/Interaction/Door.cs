@@ -61,18 +61,19 @@ public class Door : MonoBehaviour, IInteractable
     {
         if (!requiresCard)
         {
-            Debug.Log("Door is locked");
+            FeedbackChannel.Show("This door is locked");
             return;
         }
 
         if (interactor.TryGetComponent(out Inventory inventory) && inventory.Has(ItemId.AccessCard))
         {
             Debug.Log("Door unlocked with Access Card");
+            FeedbackChannel.Show("Access granted");
             SetOpen(true);
         }
         else
         {
-            Debug.Log("Requires Access Card");
+            FeedbackChannel.Show("Requires Access Card");
         }
     }
 

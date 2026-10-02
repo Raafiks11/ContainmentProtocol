@@ -16,6 +16,7 @@ public class ItemPickup : MonoBehaviour, IInteractable
         }
 
         inventory.Add(item);
+        FeedbackChannel.Show($"Picked up {displayName}");
         Destroy(gameObject);
     }
 }
