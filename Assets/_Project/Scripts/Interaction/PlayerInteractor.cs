@@ -9,6 +9,8 @@ public class PlayerInteractor : MonoBehaviour
 
     private IInteractable current;
 
+    public IInteractable Current => current;
+
     private void OnEnable()
     {
         interactAction.action.Enable();
