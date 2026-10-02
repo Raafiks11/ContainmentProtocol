@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Terminal : MonoBehaviour, IInteractable
@@ -6,6 +7,8 @@ public class Terminal : MonoBehaviour, IInteractable
     [SerializeField] private TerminalUI ui;
 
     private bool used;
+
+    public event Action Accessed;
 
     public string Prompt => used ? "Terminal (offline)" : "Use terminal";
 
@@ -16,6 +19,7 @@ public class Terminal : MonoBehaviour, IInteractable
             return;
         }
 
+        Accessed?.Invoke();
         ui.Open(this);
     }
 
