@@ -46,7 +46,5 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 velocity = horizontal + Vector3.up * verticalVelocity;
         controller.Move(velocity * Time.deltaTime);
-
-        Debug.Log($"Grounded: {controller.isGrounded} | VerticalVelocity: {verticalVelocity}");
     }
 }
