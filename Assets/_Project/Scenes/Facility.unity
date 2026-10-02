@@ -507,6 +507,7 @@ GameObject:
   - component: {fileID: 546196944}
   - component: {fileID: 546196946}
   - component: {fileID: 546196947}
+  - component: {fileID: 546196948}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -588,6 +589,21 @@ MonoBehaviour:
   walkSpeed: 4
   sprintSpeed: 7
   gravity: -9.81
+--- !u!114 &546196948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546196943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d229ea3f3be1c624ca2a64b47d517990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
+  playerCamera: {fileID: 330585545}
+  interactAction: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  interactDistance: 3
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,6 +665,7 @@ GameObject:
   - component: {fileID: 917174782}
   - component: {fileID: 917174781}
   - component: {fileID: 917174780}
+  - component: {fileID: 917174784}
   m_Layer: 0
   m_Name: TestCube
   m_TagString: Untagged
@@ -749,6 +766,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &917174784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917174779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2fe9e558f209514f8acacbc14305dd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TestInteractable
 --- !u!1 &1078919843
 GameObject:
   m_ObjectHideFlags: 0
