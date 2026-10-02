@@ -18,7 +18,10 @@ public class PlayerInteractor : MonoBehaviour
 
     private void OnDisable()
     {
-        interactAction.action.Disable();
+        if (interactAction != null)
+        {
+            interactAction.action.Disable();
+        }
     }
 
     private void Update()

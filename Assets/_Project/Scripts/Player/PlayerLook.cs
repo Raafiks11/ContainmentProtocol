@@ -17,7 +17,10 @@ public class PlayerLook : MonoBehaviour
 
     private void OnDisable()
     {
-        lookAction.action.Disable();
+        if (lookAction != null)
+        {
+            lookAction.action.Disable();
+        }
     }
 
     private void Start()

@@ -26,8 +26,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDisable()
     {
-        moveAction.action.Disable();
-        sprintAction.action.Disable();
+        if (moveAction != null)
+        {
+            moveAction.action.Disable();
+        }
+
+        if (sprintAction != null)
+        {
+            sprintAction.action.Disable();
+        }
     }
 
     private void Update()
