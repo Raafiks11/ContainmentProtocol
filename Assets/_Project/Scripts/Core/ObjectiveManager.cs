@@ -6,6 +6,7 @@ public class ObjectiveManager : MonoBehaviour
     [SerializeField] private GameStateManager gameState;
     [SerializeField] private Inventory inventory;
     [SerializeField] private Terminal terminal;
+    [SerializeField] private EscapeZone escapeZone;
     [SerializeField] private string[] objectives =
     {
         "Find the security access card",
@@ -18,13 +19,14 @@ public class ObjectiveManager : MonoBehaviour
 
     public event Action<string> ObjectiveChanged;
 
-    public string CurrentText => index < objectives.Length ? objectives[index] : string.Empty;
+    public string CurrentText => index < objectives.Length ? objectives[index] : "All objectives complete";
 
     private void OnEnable()
     {
         inventory.ItemAdded += OnItemAdded;
         terminal.Accessed += OnTerminalAccessed;
         gameState.StateChanged += OnStateChanged;
+        escapeZone.PlayerEscaped += OnPlayerEscaped;
     }
 
     private void OnDisable()
@@ -32,6 +34,7 @@ public class ObjectiveManager : MonoBehaviour
         inventory.ItemAdded -= OnItemAdded;
         terminal.Accessed -= OnTerminalAccessed;
         gameState.StateChanged -= OnStateChanged;
+        escapeZone.PlayerEscaped -= OnPlayerEscaped;
     }
 
     private void Start()
@@ -58,6 +61,11 @@ public class ObjectiveManager : MonoBehaviour
         {
             CompleteIfCurrent(2);
         }
+    }
+
+    private void OnPlayerEscaped()
+    {
+        CompleteIfCurrent(3);
     }
 
     private void CompleteIfCurrent(int expectedIndex)
